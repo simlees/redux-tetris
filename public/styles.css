@@ -1,0 +1,30 @@
+.grid {
+  margin: 2px;
+  background-color: cyan; }
+  .grid table {
+    background-color: #41454e;
+    border-collapse: collapse; }
+  .grid td {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #4a4f59;
+    padding: 0; }
+
+.I, .O, .T, .S, .Z, .J, .L {
+  background-color: cyan;
+  border-top: 4px solid#ccffff;
+  border-left: 4px solid#66ffff;
+  border-right: 4px solid#009999;
+  border-bottom: 4px solid#003333;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%; }
+
+body {
+  background-color: #d3d3d3; }
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; }
