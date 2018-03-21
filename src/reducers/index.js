@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import grid from './grid';
-import tetronimoes from './tetronimoes';
+import tetromino from './tetromino';
 import keyMapping from './keyMapping';
 
 const rootReducer = combineReducers({
   grid,
-  tetronimoes,
+  tetromino,
   keyMapping,
 });
 

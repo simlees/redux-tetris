@@ -4,21 +4,31 @@ import { connect } from 'react-redux';
 import GameController from './GameController';
 import Grid from '../components/Grid';
 import {
-  initialiseGame
+  initialiseGame,
+  tick
 } from '../actions/appActions';
+import { getGridWithActiveTetromino } from '../selectors/grid';
 
 const mapStateToProps = state => ({
-  grid: state.grid
+  grid: getGridWithActiveTetromino(state)
 });
 
 const mapDispatchToProps = {
-  initialiseGame
+  initialiseGame,
+  tick
 };
 
 class Game extends Component {
 
-  componentDidMount() {
+  onInitialiseGame() {
+    const { initialiseGame, tick } = this.props;
+    const ticker = setInterval(tick, 1000);
     this.props.initialiseGame();
+
+  }
+
+  componentDidMount() {
+    this.onInitialiseGame();
   }
   
   render() {

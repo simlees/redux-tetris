@@ -5,15 +5,18 @@ export default class Grid extends Component {
 
   visibleGridHeight = gameConfig.gridHeight - 2;
 
-  renderRow(index) {
-    const squares = this.props.grid.get(index).map((square, sqIndex) => (
-      <td key={sqIndex.toString()}>
-        {square.get('value') && (
-          <div className={square.get('value')}/>
-        )}
-      </td>
-    ));
-    return <tr key={index.toString()}>{squares}</tr>;
+  renderRow(rowIndex) {
+    const squares = this.props.grid.map((column, colIndex) => {
+      const square = column.get(rowIndex);
+      return (
+        <td key={colIndex.toString()}>
+          {square.get('value') && (
+            <div className={square.get('value')}/>
+          )}
+        </td>
+      );
+    });
+    return <tr key={rowIndex.toString()}>{squares}</tr>;
   }
 
   render() {

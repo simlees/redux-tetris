@@ -10,3 +10,4 @@ export const PAUSE = 'PAUSE';
 
 // App actions
 export const INITIALISE_GAME = 'INITIALISE_GAME';
+export const TICK = 'TICK';

@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { getRotatedTetrominoBlocks } from '../../selectors/tetronimoes';
+import { getRotatedTetrominoBlocks } from '../../selectors/tetrominoes';
 
 const getState = (type, rotation) => ({
   tetrominoes: fromJS({
@@ -27,6 +27,14 @@ describe('getRotatedTetrominoBlocks', () => {
       [2, 2],
       [2, 1],
       [2, 0],
+    ]);
+    const state2 = getState('I', 2);
+    const blocks2 = getRotatedTetrominoBlocks(state2);
+    expect(blocks2).toEqual([
+      [3, 1],
+      [2, 1],
+      [1, 1],
+      [0, 1],
     ]);
   });
 });
