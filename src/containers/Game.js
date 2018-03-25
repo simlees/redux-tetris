@@ -7,10 +7,10 @@ import {
   initialiseGame,
   tick
 } from '../actions/appActions';
-import { getGridWithActiveTetromino } from '../selectors/grid';
+import { getRenderedGridIfReady } from '../selectors/grid';
 
 const mapStateToProps = state => ({
-  grid: getGridWithActiveTetromino(state)
+  grid: getRenderedGridIfReady(state)
 });
 
 const mapDispatchToProps = {
@@ -24,7 +24,6 @@ class Game extends Component {
     const { initialiseGame, tick } = this.props;
     const ticker = setInterval(tick, 1000);
     this.props.initialiseGame();
-
   }
 
   componentDidMount() {

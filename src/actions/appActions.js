@@ -2,17 +2,13 @@ import {
   INITIALISE_GAME,
   TICK
 } from '../constants/actionTypes';
-import tetrominoes from '../constants/tetrominoes';
+import { getRandomType } from '../utils/tetrominoUtils';
 
-function getRandomType() {
-  const types = Object.keys(tetrominoes);
-  return types[ types.length * Math.random() << 0];
-}
 
 export const initialiseGame = () => ({
   type: INITIALISE_GAME,
-  tetromino: getRandomType(),
-  nextTetromino: getRandomType()
+  nextType: getRandomType(),
+  nextNextType: getRandomType()
 });
 
 export const tick = () => ({ type: TICK });

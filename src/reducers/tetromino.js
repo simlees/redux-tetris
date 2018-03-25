@@ -11,11 +11,12 @@ const initialState = fromJS({
 
 export default function tetromino(state = initialState, action) {
   switch (action.type) {
-    case ActionTypes.INITIALISE_GAME: {
-      const { tetromino, nextTetromino } = action;
+    case ActionTypes.INITIALISE_GAME:
+    case ActionTypes.HARD_DROP: {
+      const { nextType, nextNextType } = action;
       return state.merge({
-        currentType: tetromino,
-        nextType: nextTetromino,
+        currentType: nextType,
+        nextType: nextNextType,
         rotation: 0,
         position: [
           gameConfig.gridWidth / 2 - 2,
